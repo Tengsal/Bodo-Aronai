@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="Sign in or register for Bodo Aronai — Handloom &amp; Weaves.">
+  <title>Account Access — Bodo Aronai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="storage.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="whatsapp.js" defer></script>
+</head>
+<body>
+  <div class="announcement">A little piece of Boro heritage, made with care <span aria-hidden="true">✦</span> Handloom &amp; Weaves from Bodoland</div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Bodo Aronai home">
+      <img class="brand-logo" src="images/logo.png" alt="">
+      <span class="brand-name">Bodo Aronai<small>Handloom &amp; Weaves</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop collection</a>
+      <a href="index.html#traditions">Our traditions</a>
+      <a href="index.html#story">Our story</a>
+    </nav>
+    <div class="header-actions">
+      <button class="auth-trigger" type="button">Sign in</button>
+    </div>
+  </header>
+
+  <main class="dashboard-main" style="max-width: 520px; margin: 40px auto 80px;">
+    <a class="back-link" href="index.html">← Back to home</a>
+    <section class="dashboard-card" style="padding: 30px;">
+      <div class="section-title">
+        <div>
+          <p class="dashboard-eyebrow">WELCOME TO BODO ARONAI</p>
+          <h2>Good to have you.</h2>
+        </div>
+      </div>
+      <p class="demo-notice" style="margin-bottom: 20px; color: var(--muted); font-size: 11px;">
+        Demo accounts are ready. Public registration creates customer accounts only.
+      </p>
+
+      <div class="auth-tabs" role="group" aria-label="Account options" style="display: flex; gap: 8px; margin-bottom: 24px;">
+        <button class="auth-tab active" type="button" data-auth-tab="login" aria-pressed="true">Sign in</button>
+        <button class="auth-tab" type="button" data-auth-tab="register" aria-pressed="false">Create account</button>
+      </div>
+
+      <form class="auth-form" id="login-form">
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+        <button class="button button-dark form-submit" type="submit" style="margin-top: 15px; width: 100%;">Sign in <span aria-hidden="true">↗</span></button>
+      </form>
+
+      <form class="auth-form" id="register-form" hidden>
+        <label>Your name<input name="name" type="text" autocomplete="name" required></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label>Password <span class="field-hint">(at least 8 characters)</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label>Confirm password<input name="confirm-password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <button class="button button-dark form-submit" type="submit" style="margin-top: 15px; width: 100%;">Create account <span aria-hidden="true">↗</span></button>
+      </form>
+
+      <p class="dialog-status" id="auth-status" role="status" aria-live="polite" style="margin-top: 15px;"></p>
+    </section>
+  </main>
+
+  <!-- Auth dialog for modal triggers if clicked elsewhere -->
+  <dialog class="site-dialog auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+    <div class="dialog-heading">
+      <div><p class="eyebrow">WELCOME TO BODO ARONAI</p><h2 id="auth-title">Good to have you.</h2></div>
+      <button class="dialog-close" type="button" data-close-dialog aria-label="Close sign in">×</button>
+    </div>
+    <p class="demo-notice">Demo accounts are ready. Public registration creates customer accounts only.</p>
+  </dialog>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html" aria-label="Bodo Aronai home">
+      <img class="brand-logo" src="images/logo.png" alt="">
+      <span class="brand-name">Bodo Aronai<small>Handloom &amp; Weaves</small></span>
+    </a>
+    <p>Keeping our stories in every thread.</p>
+    <span class="footer-copy">© 2025 Bodo Aronai</span>
+  </footer>
+</body>
+</html>

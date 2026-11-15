@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin dashboard — Bodo Aronai</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="storage.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <a class="dashboard-brand" href="shop.html" aria-label="Bodo Aronai storefront">
+      <img src="images/logo.png" alt="">
+      <span><strong>Bodo Aronai</strong><small>Admin dashboard</small></span>
+    </a>
+    <div class="dashboard-actions">
+      <span id="admin-name-header">Demo Admin</span>
+      <button class="dashboard-button secondary" type="button" data-logout>Sign out</button>
+    </div>
+  </header>
+  <main class="dashboard-main">
+    <a class="back-link" href="shop.html">← Back to storefront</a>
+    <p class="dashboard-eyebrow">ADMINISTRATION</p>
+    <h1>Admin dashboard</h1>
+    <p class="dashboard-intro">Manage products and accounts, review demo sales, and update customer order statuses.</p>
+
+    <section class="dashboard-card">
+      <div class="section-title"><div><p class="dashboard-eyebrow">STORE PERFORMANCE</p><h2>Demo order totals</h2></div></div>
+      <p class="dashboard-muted">Demo reporting only; no real payments were taken. Sales exclude cancelled orders; catalog sales exclude shipping.</p>
+      <section class="stat-grid store-stats" aria-label="Store order totals">
+        <article class="stat-card"><span>Orders recorded</span><strong id="admin-order-count">0</strong></article>
+        <article class="stat-card"><span>Demo catalog sales</span><strong id="admin-catalog-sales">₹0.00</strong></article>
+        <article class="stat-card"><span>Shipping on active orders</span><strong id="admin-shipping-fees">₹0.00</strong></article>
+        <article class="stat-card"><span>Cancelled orders</span><strong id="admin-cancelled-orders">0</strong></article>
+      </section>
+    </section>
+
+    <section class="dashboard-card">
+      <div class="section-title"><div><p class="dashboard-eyebrow">ORDERS</p><h2>All customer orders</h2></div></div>
+      <div id="admin-orders-container">
+        <p class="dashboard-muted">Loading all orders…</p>
+      </div>
+    </section>
+
+    <section class="stat-grid" aria-label="Account totals">
+      <article class="stat-card"><span>Total accounts</span><strong id="admin-total-accounts">0</strong></article>
+      <article class="stat-card"><span>Admins</span><strong id="admin-count-admin">0</strong></article>
+      <article class="stat-card"><span>Sellers</span><strong id="admin-count-seller">0</strong></article>
+      <article class="stat-card"><span>Customers</span><strong id="admin-count-customer">0</strong></article>
+    </section>
+
+    <section class="dashboard-card">
+      <div class="section-title"><div><p class="dashboard-eyebrow">NEW ACCOUNT</p><h2>Register a user</h2></div></div>
+      <form class="dashboard-form" data-user-create>
+        <label>Full name<input name="name" maxlength="100" required></label>
+        <label>Email address<input name="email" type="email" maxlength="254" required></label>
+        <label>Role
+          <select name="role" required>
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <label>Password <span class="field-hint">(at least 8 characters)</span><input name="password" type="password" minlength="8" maxlength="200" required></label>
+        <button class="dashboard-button" type="submit">Create account</button>
+      </form>
+    </section>
+
+    <section class="dashboard-card">
+      <div class="section-title">
+        <div><p class="dashboard-eyebrow">ACCOUNTS</p><h2>Update users</h2></div>
+        <span class="role-badge admin-badge">Admin access</span>
+      </div>
+      <div id="admin-accounts-container">
+        <p class="dashboard-muted">Loading user accounts…</p>
+      </div>
+    </section>
+
+    <section class="dashboard-card">
+      <div class="section-title"><div><p class="dashboard-eyebrow">CATALOG</p><h2>Update products</h2></div></div>
+      <div id="admin-catalog-container">
+        <p class="dashboard-muted">Loading catalog products…</p>
+      </div>
+    </section>
+    <p class="dashboard-status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
